@@ -154,6 +154,7 @@ SELECT
      WHERE Tickets.ticket_id IS NULL;
      
 --Check Seats Remaining for Each Bus
+
 SELECT 
     Bus.bus_number, 
     Bus.bus_capacity, 
@@ -165,3 +166,4 @@ GROUP BY Bus.bus_id, Bus_bus.capacity;
 SELECT Bus.bus_number 
 FROM Bus;
 
+--Project 10
