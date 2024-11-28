@@ -115,6 +115,6 @@ JOIN Ingredients i ON ri.ingredient_id = i.ingredient_id
 LEFT JOIN Fridge f ON ri.ingredient_id = f.ingredient_id
 ORDER BY r.recipe_name;
 
---Project 02
+--Project 06
 
 
