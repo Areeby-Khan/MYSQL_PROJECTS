@@ -28,3 +28,4 @@ CREATE TABLE student_Course(
     Grade VARCHAR(20),
     PRIMARY KEY (student_id,course_id)
 );
+--Composite_Key
