@@ -39,6 +39,7 @@ UPDATE Orders
 SET Quantity = 15
 WHERE OrderID = 1001 AND Product = 'Pen';
 
+---------------------------------Another Table------------------------------------------
 CREATE TABLE BorrowedBooks_1NF (
     MemberID INT NOT NULL,
     MemberName VARCHAR(100),
