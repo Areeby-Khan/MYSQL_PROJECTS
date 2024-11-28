@@ -114,3 +114,6 @@ JOIN Recipe_Ingredients ri ON r.recipe_id = ri.recipe_id
 JOIN Ingredients i ON ri.ingredient_id = i.ingredient_id
 LEFT JOIN Fridge f ON ri.ingredient_id = f.ingredient_id
 ORDER BY r.recipe_name;
+
+
+

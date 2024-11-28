@@ -164,3 +164,4 @@ LEFT JOIN Tickets t ON Bus.bus_id = Tickets.bus_id
 GROUP BY Bus.bus_id, Bus_bus.capacity;
 SELECT Bus.bus_number 
 FROM Bus;
+
