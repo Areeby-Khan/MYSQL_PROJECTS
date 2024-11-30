@@ -102,6 +102,27 @@ JOIN
 JOIN 
     Doctors ON Appointments.doctor_id = Doctors.doctor_id;
 
+--. List All Doctors with Number of Patients
+SELECT Doctors.doctor_name ,
+Doctors.description ,
+COUNT(Appointments.patient_id) AS total_Patient
+FROM Doctors
+LEFT JOIN Appointments ON Appointments.doctor_id =Doctors.doctor_id 
+GROUP BY Doctors.doctor_name , Doctors.description;
+
+--Find All Appointments for a Specific Date
+
+SELECT Patient.first_name, 
+       Patient.last_name ,
+       Appointments.appointment_id,
+       Doctors.doctor_name,
+       Appointments.reason
+       FROM Appointments
+       JOIN Patient ON Appointments.patient_id =Patient.patient_id
+       JOIN Doctors ON Appointments.doctor_id = Doctors.doctor_id
+       WHERE Appointments.appointment_date = '2024-10-16';
+
+
 
 
 
