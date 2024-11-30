@@ -71,3 +71,38 @@ INSERT INTO Bills (appointment_id,amount,bill_date)VALUES
 (5,704.60,'2024-09-24');
 SELECT*FROM Bills;
 -----------------------------PRACTICING QUERIES ---------------------------------------
+
+--Fetch All Appointments with Patient and Doctor Details
+SELECT Appointments.appointment_id ,
+       Patient.first_name,
+       Patient.last_name,
+       Patient.contact_no,
+       Doctors.doctor_name,
+       Doctors.description,
+       Appointments.appointment_date,
+       Appointments.reason
+         FROM Appointments
+         JOIN Patient ON Appointments.patient_id = Patient.patient_id
+         JOIN Doctors ON Appointments.doctor_id = Doctors.doctor_id;
+
+--Generate Billing Details
+SELECT 
+    Bills.bill_id,
+    Patient.first_name,
+    Patient.last_name,
+    Doctors.doctor_name,
+    Bills.amount,
+    Bills.bill_date
+FROM 
+    Bills
+JOIN 
+    Appointments ON Bills.appointment_id = Appointments.appointment_id
+JOIN 
+    Patient ON Appointments.patient_id = Patient.patient_id
+JOIN 
+    Doctors ON Appointments.doctor_id = Doctors.doctor_id;
+
+
+
+
+
