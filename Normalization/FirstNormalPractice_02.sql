@@ -94,5 +94,5 @@ SELECT MemberName
 FROM BorrowedBooks_1NF
 GROUP BY MemberName
 HAVING COUNT(*) > 2;
---
+--Practice_02 (Composite-key)
 
