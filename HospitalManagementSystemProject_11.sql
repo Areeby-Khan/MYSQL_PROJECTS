@@ -146,4 +146,56 @@ SELECT Patient.first_name ,
        LEFT JOIN Bills ON Appointments.appointment_id = Bills.appointment_id
        WHERE Bills.bill_id IS NULL;
 
+--Update a doctor's specialization:
+UPDATE Doctors
+SET description = 'Ginacologist'
+WHERE doctor_id=5;
+
+--Update the bill amount for a specific bill:
+UPDATE Bills
+SET amount=558.50
+WHERE bill_id=3;
+
+--Get the latest bill for each patient:
+SELECT Patient.patient_id ,
+       Patient.first_name,
+       Patient.last_name , 
+       MAX(Bills.bill_date) AS total_Bill_Largest
+       FROM Patient
+        JOIN Appointments ON Patient.patient_id= Appointments.patient_id
+       JOIN Bills ON Appointments.appointment_id=Bills.appointment_id
+       GROUP BY Patient.patient_id;
+
+--Get the doctor with the most appointments:
+SELECT 
+    Doctors.doctor_name,
+    Doctors.description,
+    COUNT(Appointments.appointment_id) AS appointment_count
+FROM 
+    Doctors d
+JOIN 
+    Appointments a ON Doctors.doctor_id = Appointments.doctor_id
+GROUP BY 
+    Doctors.doctor_id
+ORDER BY 
+    appointment_count DESC
+LIMIT 1;
+
+--Get patients who have had more than one appointment:
+
+SELECT 
+    Patient.first_name,
+    Patient.last_name,
+    COUNT(Appointments.appointment_id) AS total_appointments
+FROM 
+    Patients p
+JOIN 
+    Appointments a ON Patient.patient_id = Appointments.patient_id
+GROUP BY 
+    Patient.patient_id
+HAVING 
+    COUNT(Appointments.appointment_id) > 1;
+
+
+
 
