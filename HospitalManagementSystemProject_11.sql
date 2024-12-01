@@ -122,8 +122,28 @@ SELECT Patient.first_name,
        JOIN Doctors ON Appointments.doctor_id = Doctors.doctor_id
        WHERE Appointments.appointment_date = '2024-10-16';
 
+--Count the number of appointments for each doctor
+SELECT 
+      Doctors.doctor_name ,
+      Doctors.description , 
+      COUNT (Appointments.appointment_id) As total_appointment
+ FROM Doctors 
+ JOIN Appointments ON Appointments.doctor_id=Doctors.doctor_id
+ GROUP BY Doctors.doctor_id;
 
+--Get bills for a specific patient (e.g., patient_id = 1) 
+SELECT  Bills.*
+FROM Bills
+JOIN Appointments ON Bills.appointment_id=Appointments.appointment_id
+WHERE Appointments.patient_id=1;
 
-
+--Get unpaid bills (appointments without bills)
+SELECT Patient.first_name , 
+       Patient.last_name , 
+       Appointments.appointment_date
+       FROM Patient
+       JOIN Appointments ON Appointments.patient_id = Patient.patient_id
+       LEFT JOIN Bills ON Appointments.appointment_id = Bills.appointment_id
+       WHERE Bills.bill_id IS NULL;
 
 
