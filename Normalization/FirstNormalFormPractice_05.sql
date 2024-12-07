@@ -104,7 +104,7 @@ SELECT DISTINCT emp_id ,emp_name , emp_contact_no , emp_deprt
 FROM Employee_data_1NF
 ORDER BY emp_deprt,emp_name;
 
-
+SELECT *FROM Employee_data_1NF;
 
 
 
