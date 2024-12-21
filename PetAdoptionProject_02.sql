@@ -100,4 +100,4 @@ FROM Adoptions
 JOIN Pets ON Adoptions.pet_id = Pets.pet_id
 ORDER BY Adoptions.adoption_date DESC 
 LIMIT 3;
---Project 02
+--Project 02: COMMENTs
